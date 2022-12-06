@@ -1,0 +1,59 @@
+@model IEnumerable<ProdutoModel>
+
+<link rel="stylesheet" href="~/css/tabela.css">
+
+<header class="d-flex justify-content-between align-tems-center">
+    <div>
+        <h2 class="text-primary">Listagem de Produtos</h2>
+    </div>
+    <div>
+        <a asp-action="Cadastrar" class="btn btn-primary"><i class="bi bi-plus"></i> Novo Produto</a>
+    </div>
+</header>
+<hr>
+@if (Model.Count() > 0)
+{
+    <div class="container">
+        <table class="table table-striped table-produtos table-sm table-hover">
+            <thead class="bg-dark bg-gradient text-white">
+                <tr>
+                    <th>Foto</th>
+                    <th>Nome</th>
+                    <th>Categoria</th>
+                    <th>Estoque</th>
+                    <th>Preço</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            <a href='@($"{item.CaminhoImagem}?{DateTime.Now}")' data-lightbox="@item.Id" data-title="@item.Nome">
+                                <img src='@($"{item.CaminhoImagem}?{DateTime.Now}")' class="img-responsive img-thumbnail">
+                            </a>
+                        </td>
+                        <td>@item.Nome</td>
+                        <td>@item.Categoria.Nome</td>
+                        <td>@item.Estoque?.ToString("D3")</td>
+                        <td>@item.Preco?.ToString("C")</td>
+                        <td>
+                            <a class="btn btn-success btn-sm" asp-action="Alterar" asp-route-id="@item.Id" title="Alterar">
+                                <i class="bi bi-pencil"></i>
+                            </a>
+
+                            <a class="btn btn-danger btn-sm" asp-action="Excluir" asp-route-id="@item.Id" title="Excluir">
+                                <i class="bi bi-trash"></i>
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
+else
+{
+    <h3>Não há produtos cadastrados.</h3>
+}

@@ -1,0 +1,98 @@
+
+  .card .content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .cards-container {
+    height: 450px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  
+  .card {
+    max-width: 300px;
+    height: 400px;
+    position: relative;
+    box-shadow: 0 0 15px rgba(0, 0, 0, .2);
+    margin: 25px 0;
+    width: 30%;
+    align-self: flex-start;
+  }
+
+  .card .elms-animation,
+  .card .content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+  }
+  .card .elms-animation {
+    z-index: 5;
+  }
+  .card .elms-animation span {
+    position: absolute;
+    background-color: rgba(0, 0, 0, .6);
+    height: 0;
+    width: 0;
+    transition: all .5s ease-out;
+  }
+  .card .elms-animation span.one {
+    top: 0; left: 0;
+  }
+  .card .elms-animation span.two {
+    top: 0; right: 0;
+  }
+  .card .elms-animation span.three {
+    left: 0; bottom: 0;
+  }
+  .card .elms-animation span.four {
+    right: 0; bottom: 0;
+  }
+  
+  .card:hover .elms-animation span {
+    width: 50%;
+    height: 50%;
+  }
+  
+  .card img {
+    height: 400px;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+  }
+  
+  .card .content {
+    z-index: 6;
+    visibility: hidden;
+  }
+  .card:hover .content {
+    animation: show .3s .4s linear forwards;
+  }
+  .card .content button {
+    padding: .6rem 1.3rem;
+    border: 3px solid rgb(255, 255, 255);
+    background: transparent;
+    color: #FFF;
+    font-size: 1rem;
+    outline: none;
+    cursor: pointer;
+    transition: background .3s ease;
+  }
+  .card .content button:hover {
+    background: #FFF;
+    color: #333;
+  }
+  
+  @keyframes show {
+    to {
+      visibility: visible;
+    }
+  }

@@ -1,0 +1,64 @@
+@model ProdutoModel
+
+<div class="container">
+    <h2 class="text-primary">Alteração de Produto</h2>
+    <hr>
+    <form asp-action="Alterar" method="post" enctype="multipart/form-data">
+        <input type="hidden" asp-for="@Model.Id">
+
+        <div class="form-floating">
+            <input type="text" class="form-control" placeholder="" asp-for="@Model.Nome">
+            <label asp-for="@Model.Nome"></label><br>
+            <span class="text-danger" asp-validation-for="@Model.Nome"></span>
+        </div>
+
+        <div class="form-floating">
+            <input type="text" class="form-control" placeholder="" asp-for="@Model.Estoque">
+            <label asp-for="@Model.Estoque"></label><br>
+            <span class="text-danger" asp-validation-for="@Model.Preco"></span>
+        </div>
+
+        <div class="form-floating">
+            <input type="text" class="form-control" placeholder="" asp-for="@Model.Preco">
+            <label asp-for="@Model.Preco"></label><br>
+            <span class="text-danger" asp-validation-for="@Model.Preco"></span>
+        </div>
+
+        <div class="form-floating mb-4">
+            <select asp-for="@Model.IdCategoria" asp-items="@ViewBag.Categorias" class="form-select">
+                <option value="">Selecione a categoria...</option>
+            </select>
+            <label asp-for="@Model.IdCategoria"></label><br>
+            <span class="text-danger" asp-validation-for="@Model.IdCategoria"></span>
+        </div>
+
+        <div class="form-group mb-4">
+            <label asp-for="@Model.ArquivoImagem" class="form-label"></label><br>
+            <input class="form-control" asp-for="@Model.ArquivoImagem" accept="image/*">
+            <span class="text-danger" asp-validation-for="@Model.ArquivoImagem"></span>
+        </div>
+
+        <div class="mb-4 form-group">
+            <img src="@Model.CaminhoImagem" class="img-thumbnail" width="200" id="imgAtual">
+        </div>
+
+        <div>
+            <input type="submit" class="btn btn-sm btn-success" value="Salvar">
+            <a asp-action="Index" class="btn btn-sm btn-danger">Cancelar</a>
+        </div>
+
+    </form>
+</div>
+
+<script>
+    const inputImagem = document.querySelector('#ArquivoImagem');
+    inputImagem.addEventListener('change', (e) => {
+        var file = e.srcElement.files[0];
+        var img = document.querySelector('#imgAtual');
+        var reader = new FileReader();
+        reader.onloadend = function () {
+            img.src = reader.result;
+        }
+        reader.readAsDataURL(file);
+    });
+</script>

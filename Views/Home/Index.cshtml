@@ -1,0 +1,57 @@
+@model LoginViewModel
+
+@* <h1 class="display-4">Página Pública</h1>
+    <hr>
+    <p class="lead">
+    Qualquer usuário tem autorização para ver essa página.
+    </p> *@
+
+<div class="container">
+    <div class="cards-container">
+        <div class="card col-12 col-lg-4">
+        <div class="container text-center p-3 text-light bg-dark">Usuários</div>
+            <div class="elms-animation">
+                <span class="one"></span>
+                <span class="two"></span>
+                <span class="three"></span>
+                <span class="four"></span>
+            </div>
+            <img src="https://images.unsplash.com/photo-1647810969386-b2b1914c0a89?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1374&q=80" alt="" />
+            <div class="content">
+                <button type="button" class="btn btn-primary">
+                    <a class="nav-link" asp-controller="Usuario" asp-action="Index">Acessar</a>
+                </button>
+            </div>
+        </div>
+        <div class="card col-12 col-lg-4">
+        <div class="container text-center p-3 text-light bg-dark">Categorias</div>
+            <div class="elms-animation">
+                <span class="one"></span>
+                <span class="two"></span>
+                <span class="three"></span>
+                <span class="four"></span>
+            </div>
+            <img src="https://images.unsplash.com/photo-1540757064586-c1ea49f292a7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=434&q=80" alt="" />
+            <div class="content">
+                <button type="button" class="btn btn-primary">
+                    <a class="nav-link" asp-controller="Categoria" asp-action="Index">Acessar</a>
+                </button>
+            </div>
+        </div>
+        <div class="card col-12 col-lg-4">
+        <div class="container text-center p-3 text-light bg-dark">Produtos</div>
+            <div class="elms-animation">
+                <span class="one"></span>
+                <span class="two"></span>
+                <span class="three"></span>
+                <span class="four"></span>
+            </div>
+            <img src="https://images.unsplash.com/photo-1491933382434-500287f9b54b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=464&q=80" alt="" />
+            <div class="content">
+                <button type="button" class="btn btn-primary">
+                    <a class="nav-link" asp-controller="Produto" asp-action="Index">Acessar</a>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,32 @@
+@model UsuarioModel
+
+<div class="row">
+    <div class="col-4 offset-4 border border-info p-3 rounded">
+        <h1 class="display-4 mb-3">Cadastre-se!</h1>
+        <form method="post">
+            <div class="form-floating mb-3">
+                <input class="form-control" asp-for="@Model.Nome" placeholder="Nome Completo">
+                <label asp-for="@Model.Nome"></label>
+                <span class="small text-danger ps-2" asp-validation-for="@Model.Nome"></span>
+            </div>
+            <div class="form-floating mb-3">
+                <input class="form-control" asp-for="@Model.Email" placeholder="nome@@email.com">
+                <label asp-for="@Model.Email"></label>
+                <span class="small text-danger ps-2" asp-validation-for="@Model.Email"></span>
+            </div>
+            <div class="form-floating mb-3">
+                <input class="form-control" asp-for="@Model.Senha" placeholder="123456">
+                <label asp-for="@Model.Senha"></label>
+                <span class="small text-danger ps-2" asp-validation-for="@Model.Senha"></span>
+            </div>
+            <div class="form-floating mb-3">
+                <input class="form-control" asp-for="@Model.ConfSenha" placeholder="123456">
+                <label asp-for="@Model.ConfSenha"></label>
+                <span class="small text-danger ps-2" asp-validation-for="@Model.ConfSenha"></span>
+            </div>
+            <div>
+                <button class="btn btn-primary">Cadastrar</button>
+            </div>
+        </form>
+    </div>
+</div>

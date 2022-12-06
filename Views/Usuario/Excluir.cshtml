@@ -1,0 +1,14 @@
+@model UsuarioModel
+
+<div class="container">
+    <h2 class="text-primary">Exclusão de Usuario</h2>
+    <hr>
+    <h3 class="text-bg-warning">Deseja realmente excluir o Usuario <span class="text-danger"><u>@Model.Nome</u>?</span></h3>
+    <form asp-action="ProcessarExclusao" method="post">
+        <input type="hidden" asp-for="@Model.IdUsuario">
+        <p>
+            <input type="submit" class="btn btn-sm btn-success" value="Sim">
+            <a asp-action="Index" class="btn btn-sm btn-danger">Não</a>
+        </p>
+    </form>
+</div>

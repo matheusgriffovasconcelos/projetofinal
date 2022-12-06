@@ -1,0 +1,15 @@
+@model ProdutoModel
+
+<div class="container">
+    <h2 class="text-primary">Exclusão de Produto</h2>
+    <hr>
+    <h3 class="text-bg-warning">Deseja realmente excluir o produto <span class="text-danger"><u>@Model.Nome</u>?</span></h3>
+    <form method="post" asp-action="ProcessarExclusao">
+        <input type="hidden" asp-for="@Model.Id">
+        <p>
+            <input type="submit" class="btn btn-sm btn-success" value="Sim">
+            <a asp-action="Index" class="btn btn-sm btn-danger">Não</a>
+        </p>
+    </form>
+</div>
+

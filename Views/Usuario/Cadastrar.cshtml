@@ -1,0 +1,40 @@
+@model UsuarioModel
+
+<div class="row">
+    <div class="col-4 offset-4 border border-info p-3 rounded">
+        <h1 class="display-4 mb-3">Cadastrar Usuario!</h1>
+        <form asp-action="Cadastrar" method="post">
+        <input type="hidden" asp-for="@Model.IdUsuario">
+            <div class="form-floating mb-3">
+                <input class="form-control" asp-for="@Model.Nome" placeholder="Nome Completo">
+                <label asp-for="@Model.Nome"></label>
+                <span class="small text-danger ps-2" asp-validation-for="@Model.Nome"></span>
+            </div>
+            <div class="form-floating mb-3">
+                <input class="form-control" asp-for="@Model.Email" placeholder="nome@@email.com">
+                <label asp-for="@Model.Email"></label>
+                <span class="small text-danger ps-2" asp-validation-for="@Model.Email"></span>
+            </div>
+            <div class="form-floating mb-3">
+                <input class="form-control" asp-for="@Model.Senha" placeholder="123456">
+                <label asp-for="@Model.Senha"></label>
+                <span class="small text-danger ps-2" asp-validation-for="@Model.Senha"></span>
+            </div>
+            <div class="form-floating mb-3">
+                <input class="form-control" asp-for="@Model.ConfSenha" placeholder="123456">
+                <label asp-for="@Model.ConfSenha"></label>
+                <span class="small text-danger ps-2" asp-validation-for="@Model.ConfSenha"></span>
+            </div>
+
+            <div class="form-check form-switch mb-3">
+                <span class="text-danger" asp-validation-for="@Model.IsAdmin"></span>
+                <label asp-for="@Model.IsAdmin"></label>
+                <input type="checkbox" class="form-check-input" placeholder="" asp-for="@Model.IsAdmin">
+            </div>
+
+            <div>
+                <button class="btn btn-primary">Cadastrar</button>
+            </div>
+        </form>
+    </div>
+</div>

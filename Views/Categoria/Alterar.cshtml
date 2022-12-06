@@ -1,0 +1,18 @@
+@model CategoriaModel
+
+<div class="container">
+    <h2 class="text-primary">Alteração de Categoria</h2>
+    <hr>
+    <form method="post">
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" placeholder="Categoria" asp-for="@Model.Nome">
+            <label asp-for="@Model.Nome"></label><br>
+            <span class="text-danger" asp-validation-for="@Model.Nome"></span>
+        </div>
+        <p>
+            <input type="submit" class="btn btn-sm btn-success" value="Salvar">
+            <a asp-action="Index" class="btn btn-sm btn-danger">Cancelar</a>
+        </p>
+
+    </form>
+</div>

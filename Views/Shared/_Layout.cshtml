@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/estilos.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" defer></script>
+    <link rel="stylesheet" href="/lib/lightbox2/dist/css/lightbox.min.css">
+    <script src="/lib/lightbox2/dist/js/lightbox-plus-jquery.min.js" defer></script>
+    <script src="https://kit.fontawesome.com/95a02bd20d.js" defer></script>
+    <title>Autenticação</title>
+</head>
+
+
+@* <div class="bg-image" style="
+    background: url('https://images.unsplash.com/photo-1531685250784-7569952593d2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80');
+    height: 100vh;
+    "> *@
+
+@* <div class="bg-image" style="background-image: url('/img/bg-aliancas2.jpeg'); height: 100vh;"> *@
+
+<body>
+
+    @* <nav class="navbar navbar-expand-sm bg-image" style="background-image: url('/img/bg-aliancas2.jpeg'); width: 100vw;"> *@
+     <nav class="navbar navbar-expand-sm navbar-dark bg-dark bg-opacity-75">
+        <div class="container">
+            <a class="navbar-brand" asp-controller="Home" asp-action="Index"><i class="bi-cup-hot text-danger"></i> PROJETO<span class="text-danger">FINAL</span></a>
+            <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end align-items-center" id="navMenu">
+                <ul class="navbar-nav mt-2 mt-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Home" asp-action="Index">Principal</a>
+                    </li>
+
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="Home" asp-action="Logout">Logout</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="Categoria" asp-action="Index">Categorias</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="Produto" asp-action="Index">Produtos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="Usuario" asp-action="Index">Administrar</a>
+                        </li>
+                        <li class="nav-tem">
+                            <div class="dropdown ms-3">
+                                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="bi-person-circle text-primary"></i> Logado como <b class="text-info">@User.Identity.Name</b></a>
+                                <ul class="dropdown-menu ms-auto">
+                                    <li>
+                                        <a href="#" class="dropdown-item">Perfil</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="dropdown-item">Alterar Senha</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="dropdown-item">Sair</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="Home" asp-action="Login">Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="Home" asp-action="Cadastrar">Cadastre-se!</a>
+                        </li>
+                    }
+
+                    @* <li class="nav-item">
+                        <a class="nav-link" asp-controller="Home" asp-action="Restrita">Restrita</a>
+                        </li> *@
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container mt-3">
+        @RenderBody()
+    </main>
+
+    <div style="height: 96px;"></div>
+
+    <footer class="py-3 text-bg-dark bg-black text-center fixed-bottom">
+        Copyright Matheus Vasconcelos &copy; @DateTime.Now.Year<br>
+        Todos os direitos reservados
+    </footer>
+</body>
+
+
+</html>
