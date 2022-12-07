@@ -19,7 +19,7 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddDbContext<AppDbContext>(options =>
 {
-    options.UseNpgsql(builder.Configuration.GetConnectionString("AppDbContext"));
+    options.UseSqlite(builder.Configuration.GetConnectionString("AppDbContext"));
 });
 
 // builder.Services.AddEntityFrameworkNpgsql()
